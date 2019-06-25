@@ -2,6 +2,7 @@ let rpc = require("./modules/rpc")
 let log = require("default-logger")
 let TAG = " | APP | "
 const json2csv = require('json2csv').Parser;
+const when = require('when');
 
 module.exports = {
 	historyToCSV: function () {
