@@ -32,7 +32,7 @@ let raw_to_csv = async function (data, title) {
 		//const result = new json2csv({ data: data, fields: fields })
 		const json2csvParser = new json2csv({fields})
 		const result = json2csvParser.parse(data);
-		log.info(tag,"result: ",result)
+		console.log(tag,"result: ",result)
 
 		// write to file
 		if(config.NODE_ENV === "dev"){
@@ -50,7 +50,7 @@ let raw_to_csv = async function (data, title) {
 
 		return { success: true }
 	} catch (e) {
-		log.error(tag,e)
+		console.error(tag,e)
 		throw e
 	}
 }
