@@ -1,5 +1,5 @@
 let rpc = require("./modules/rpc")
-
+let log = require("default-logger")
 let TAG = " | APP | "
 
 module.exports = {
@@ -15,7 +15,7 @@ let history_to_csv = async function(){
 	try{
 
 		//
-		let result = await rpc.get("sending","show_transfers")
+		let result = await rpc.get("sending","transfers")
 		log.info(tag,"result: ",result)
 
 
