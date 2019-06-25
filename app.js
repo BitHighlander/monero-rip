@@ -63,6 +63,29 @@ const write_file = function (filename, data) {
 	})
 	return d.promise
 }
+
+
+let normalize_data = function(rawData){
+	try{
+		let output = []
+		//iterate over in's
+		for(let i = 0; i < rawData.in.length; i++){
+			let entry = rawData.in[i]
+			entry.type = "credit"
+			output.push(entry)
+		}
+		//iterate over out's
+		for(let i = 0; i < rawData.out.length; i++){
+			let entry = rawData.in[i]
+			entry.type = "debit"
+			output.push(entry)
+		}
+		return output
+	}catch(e){
+		throw e
+	}
+}
+
 let history_to_csv = async function(){
 	let tag = TAG + " | history_to_csv | "
 	try{
@@ -74,6 +97,8 @@ let history_to_csv = async function(){
 
 		let result = await rpc.get("sending","get_transfers",params)
 		console.log(tag,"result: ",result)
+
+		let data = normalize_data(result)
 
 		let csv = await raw_to_csv(result)
 
