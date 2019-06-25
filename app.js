@@ -15,8 +15,11 @@ let history_to_csv = async function(){
 	try{
 
 		//
-		let result = await rpc.get("sending","transfers")
-		log.info(tag,"result: ",result)
+
+		let params = {filter_by_height:true,min_height:min,max_height:max,in:true,out:true,pool:true}
+
+		let result = await rpc.get("sending","get_transfers",params)
+		console.log(tag,"result: ",result)
 
 
 		return result
