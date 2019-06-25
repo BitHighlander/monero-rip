@@ -76,7 +76,7 @@ let normalize_data = function(rawData){
 		}
 		//iterate over out's
 		for(let i = 0; i < rawData.out.length; i++){
-			let entry = rawData.in[i]
+			let entry = rawData.out[i]
 			entry.type = "debit"
 			output.push(entry)
 		}
