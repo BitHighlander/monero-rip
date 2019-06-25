@@ -34,14 +34,10 @@ let raw_to_csv = async function (data, title) {
 		const result = json2csvParser.parse(data);
 		console.log(tag,"result: ",result)
 
-		// write to file
-		if(config.NODE_ENV === "dev"){
-			const filename = './projects/arbiter-core/reports/'+title + '.csv'
-			await write_file(filename, result)
-		}else{
-			const filename = '../reports/'+title + '.csv'
-			await write_file(filename, result)
-		}
+
+		const filename = '../reports/'+title + '.csv'
+		await write_file(filename, result)
+
 
 
 		// upload to slack
