@@ -15,7 +15,8 @@ let history_to_csv = async function(){
 	try{
 
 		//
-
+		let min = 0
+		let max = 1864855
 		let params = {filter_by_height:true,min_height:min,max_height:max,in:true,out:true,pool:true}
 
 		let result = await rpc.get("sending","get_transfers",params)
