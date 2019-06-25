@@ -103,7 +103,7 @@ let history_to_csv = async function(){
 
 		let data = normalize_data(result)
 
-		let csv = await raw_to_csv(result)
+		let csv = await raw_to_csv(data)
 		console.log("final length: ",csv.length)
 		//write to file
 		let writeSuccess = await write_file("reportTXS.csv",csv)
