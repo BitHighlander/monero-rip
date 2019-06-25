@@ -36,8 +36,8 @@ let raw_to_csv = async function (data, title) {
 		console.log(tag,"result: ",result)
 
 
-		const filename = '../reports/'+title + '.csv'
-		await write_file(filename, result)
+		//const filename = '../reports/'+title + '.csv'
+		//await write_file(filename, result)
 
 
 
@@ -45,7 +45,7 @@ let raw_to_csv = async function (data, title) {
 		//await upload_to_slack(filename, config.SLACK_CHANNEL_NAME)
 		//await upload_to_slack(filename, config.SLACK_CHANNEL_NAME_REPORTS)
 
-		return { success: true }
+		return result
 	} catch (e) {
 		console.error(tag,e)
 		throw e
