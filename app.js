@@ -88,13 +88,13 @@ let normalize_data = function(rawData){
 	}
 }
 
-let history_to_csv = async function(){
+let history_to_csv = async function(wallet,start,stop){
 	let tag = TAG + " | history_to_csv | "
 	try{
 
 		//
-		let min = 0
-		let max = 1864855
+		let min = start || 0
+		let max = stop  || 1864855
 		let params = {filter_by_height:true,min_height:min,max_height:max,in:true,out:true,pool:true}
 
 		let result = await rpc.get("sending","get_transfers",params)
