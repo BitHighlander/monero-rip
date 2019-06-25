@@ -11,7 +11,7 @@ module.exports = {
 }
 
 
-let raw_to_csv = async function (data, title) {
+let raw_to_csv = async function (data) {
 	let tag = TAG+" | raw_to_csv | "
 	try {
 		// let fields = Object.keys(data[0])
@@ -29,6 +29,8 @@ let raw_to_csv = async function (data, title) {
 		fields = fields.filter(function (elem, pos) {
 			return fields.indexOf(elem) == pos
 		})
+
+		console.log("fields: ",fields)
 
 		//const result = new json2csv({ data: data, fields: fields })
 		const json2csvParser = new json2csv({fields})
@@ -102,7 +104,7 @@ let history_to_csv = async function(){
 		let data = normalize_data(result)
 
 		let csv = await raw_to_csv(result)
-
+		console.log("final length: ",csv.length)
 		//write to file
 		let writeSuccess = await write_file("reportTXS.csv",csv)
 		console.log(writeSuccess)
