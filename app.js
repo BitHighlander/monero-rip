@@ -3,7 +3,7 @@ let log = require("default-logger")
 let TAG = " | APP | "
 const json2csv = require('json2csv').Parser;
 const when = require('when');
-
+const fs = require("fs")
 module.exports = {
 	historyToCSV: function () {
 		return history_to_csv();
