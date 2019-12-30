@@ -102,12 +102,29 @@ curl -X POST http://127.0.0.1:8083/json_rpc -d '{"jsonrpc":"2.0","id":"0","metho
  */
 let get_balance = async function(){
 	try{
-		let params = {"account_index":0,"address_indices":[0,1]}
+		let params = {"account_index":0,"address_indices":[0,100]}
 
 		let result = await rpc.get("sending","get_balance",params)
+		//let data
+		let data = []
+		for(let i = 0; result.per_subaddress.length < 0; i++){
+			let entry = result.per_subaddress[i]
+			entry.balance = entry.balance / 10000000000
+			data.push(entry)
+		}
+		console.log("data: ",data)
 
 		//upload to slack
+		// let csv = await raw_to_csv(data)
+		// console.log("final length: ",csv.length)
+		// //write to file
+		// let filename = "XMR:BALANCES:report:"+new Date()
+		// let writeSuccess = await write_file(filename,csv)
+		// console.log(writeSuccess)
 
+		// upload to slack
+		//await upload_to_slack(filename, config.SLACK_CHANNEL_NAME)
+		//await upload_to_slack(filename, "year_end_snapshot")
 
 		return result
 
