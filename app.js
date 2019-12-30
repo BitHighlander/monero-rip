@@ -17,7 +17,7 @@ let debug = function(){
 setInterval(debug,1000)
 
 // weekday run at noon
-cron.schedule('55 21 * * 1-5', () => {
+cron.schedule('0 22 * * 1-5', () => {
     tools.getBalance()
     console.log("Winning! ****************** ")
     console.log('running at a time every day');
