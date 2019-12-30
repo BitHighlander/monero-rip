@@ -110,7 +110,7 @@ let get_balance = async function(){
 		for(let i = 0; result.per_subaddress.length > 0; i++){
 			let entry = result.per_subaddress[i]
 			console.log("entry: ",entry)
-			entry.balance = entry.balance / 10000000000
+			if(entry.balance)entry.balance = entry.balance / 10000000000
 			data.push(entry)
 		}
 		console.log("data: ",data)
