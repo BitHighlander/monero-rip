@@ -109,6 +109,7 @@ let get_balance = async function(){
 		//upload to slack
 
 
+		return result
 
 	}catch(e){
 		throw e
