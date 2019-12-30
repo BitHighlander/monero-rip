@@ -107,7 +107,7 @@ let get_balance = async function(){
 		let result = await rpc.get("sending","get_balance",params)
 		//let data
 		let data = []
-		for(let i = 0; result.per_subaddress.length < 0; i++){
+		for(let i = 0; result.per_subaddress.length > 0; i++){
 			let entry = result.per_subaddress[i]
 			console.log("entry: ",entry)
 			entry.balance = entry.balance / 10000000000
