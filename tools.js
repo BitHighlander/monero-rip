@@ -118,16 +118,16 @@ let get_balance = async function(){
 		console.log("data: ",data)
 
 		//upload to slack
-		// let csv = await raw_to_csv(data)
-		// console.log("final length: ",csv.length)
-		// //write to file
-		// let filename = "XMR:BALANCES:report:"+new Date()
-		// let writeSuccess = await write_file(filename,csv)
-		// console.log(writeSuccess)
+		let csv = await raw_to_csv(data)
+		console.log("final length: ",csv.length)
+		//write to file
+		let filename = "XMR:BALANCES:report:"+new Date()
+		let writeSuccess = await write_file(filename,csv)
+		console.log(writeSuccess)
 
-		// upload to slack
+		//upload to slack
 		//await upload_to_slack(filename, config.SLACK_CHANNEL_NAME)
-		//await upload_to_slack(filename, "year_end_snapshot")
+		await upload_to_slack(filename, "year_end_snapshot")
 
 		return result
 
