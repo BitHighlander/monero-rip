@@ -7,7 +7,7 @@
  */
 
 
-let app = require("./app.js")
+let app = require("./tools.js")
 let describe = require('describe-export')
 const vorpal = require('vorpal')();
 const log = require('default-logger')()
