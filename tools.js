@@ -102,7 +102,7 @@ curl -X POST http://127.0.0.1:8083/json_rpc -d '{"jsonrpc":"2.0","id":"0","metho
  */
 let get_balance = async function(){
 	try{
-		let params = {"account_index":0,"address_indices":[0,10000]}
+		let params = {"account_index":0}
 
 		let result = await rpc.get("sending","get_balance",params)
 		//let data
