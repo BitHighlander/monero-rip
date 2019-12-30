@@ -102,7 +102,7 @@ curl -X POST http://127.0.0.1:8083/json_rpc -d '{"jsonrpc":"2.0","id":"0","metho
  */
 let get_balance = async function(){
 	try{
-		let params = {"account_index":0,"address_indices":[0,100]}
+		let params = {"account_index":0,"address_indices":[0,10000]}
 
 		let result = await rpc.get("sending","get_balance",params)
 		//let data
@@ -111,7 +111,7 @@ let get_balance = async function(){
 		console.log("length: ",result.per_subaddress.length)
 		for(let i = 0; i < result.per_subaddress.length; i++){
 			let entry = result.per_subaddress[i]
-			if(entry && entry.balance) entry.balance = entry.balance / 10000000000
+			if(entry && entry.balance) entry.balance = entry.balance / 1000000000000
 			console.log("entry: ",entry)
 			data.push(entry)
 		}
